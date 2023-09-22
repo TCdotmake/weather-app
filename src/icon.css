@@ -1,0 +1,13 @@
+.icon {
+  > svg {
+    width: 25px;
+    height: 25px;
+  }
+}
+.search {
+  > svg {
+    > path {
+      fill: red;
+    }
+  }
+}

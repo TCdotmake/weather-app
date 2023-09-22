@@ -1,0 +1,26 @@
+.weather {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.weather-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  > div {
+    display: flex;
+    flex-direction: column;
+    > h2 {
+      font-size: 1.25rem;
+      line-height: 90%;
+    }
+    > p {
+      font-size: 0.75rem;
+      font-weight: 300;
+      line-height: 90%;
+    }
+    > h3 {
+      font-size: 1rem;
+    }
+  }
+}

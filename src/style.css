@@ -1,5 +1,19 @@
+/*reset style*/
 @import "./resetStyle.css";
-
+/* fonts */
+@import ".//fonts/sairaCondensed/sairaCondensed.css";
+/* colors */
+@import "./color.css";
+/* icon */
+@import "./icon.css";
+/* element styles */
+@import "./chunk.css";
+@import "./weather.css";
 html {
-  font-family: "opensans";
+  font-family: "Saira Condensed";
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
 }

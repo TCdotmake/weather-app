@@ -1,13 +1,13 @@
 import style from "./style.css";
 
 import getData from "./getData";
+import searchIcon from "./searchIcon";
+import mkWeather from "./mkWeather";
 
 const body = document.body;
-const title = document.createElement("h1");
-title.innerHTML = "test";
-body.appendChild(title);
+body.appendChild(mkWeather());
 
-(async () => {
-  const data = await getData("sarasota");
-  console.log(data);
-})();
+// (async () => {
+//   const data = await getData("sarasota");
+//   console.log(data);
+// })();
