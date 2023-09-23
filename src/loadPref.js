@@ -2,7 +2,10 @@ import localSave from "./localSave";
 import localLoad from "./localLoad";
 
 function initPref() {
-  const data = { unit: "imperial" };
+  const data = {
+    unit: "imperial",
+    weatherView: "current",
+  };
   localSave("tcdotmakeWatherApp", data);
   return data;
 }
