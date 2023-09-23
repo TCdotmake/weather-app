@@ -3,6 +3,7 @@
   color: var(--white);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .weather-top {
@@ -77,5 +78,17 @@
       font-weight: 200;
       line-height: 100%;
     }
+  }
+}
+
+.weather-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  > p {
+    font-size: 1.125rem;
+
+    line-height: 130%;
+    font-weight: 200;
   }
 }

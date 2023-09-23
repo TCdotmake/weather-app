@@ -13,8 +13,10 @@ function mkWeather(data, type) {
   weather.classList.add("weather");
   const weatherTop = mkWeatherTop(data, type);
   const weatherMiddle = mkWeatherMiddle(data, type);
+  const weatherBottom = mkWeatherBottom(data, type);
   weather.appendChild(weatherTop);
   weather.appendChild(weatherMiddle);
+  weather.appendChild(weatherBottom);
   return weather;
 }
 
@@ -80,4 +82,32 @@ function mkWeatherMiddle(data, type) {
     weatherMiddle.appendChild(tempDiv);
   }
   return weatherMiddle;
+}
+
+function mkWeatherBottom(data, type) {
+  const weatherBottom = document.createElement("div");
+  weatherBottom.classList.add("weather-bottom");
+  let source = null;
+  if (type == "current") {
+    source = data.current;
+  }
+  //todo insert other types here using if
+  if (source != null) {
+    const feel = document.createElement("p");
+    feel.innerHTML = "Feels like: " + source.feelslike_f + "º";
+    const humidity = document.createElement("p");
+    humidity.innerHTML = "Humidity: " + source.humidity + "%";
+    const wind = document.createElement("p");
+    wind.innerHTML = `Wind: ${source.wind_dir} ${source.wind_mph} mph`;
+    const vis = document.createElement("p");
+    vis.innerHTML = `Visibility: ${source.vis_miles}mi`;
+    const uv = document.createElement("p");
+    uv.innerHTML = `UV Index: ${source.uv}`;
+    weatherBottom.appendChild(feel);
+    weatherBottom.appendChild(humidity);
+    weatherBottom.appendChild(wind);
+    weatherBottom.appendChild(vis);
+    weatherBottom.appendChild(uv);
+  }
+  return weatherBottom;
 }
