@@ -1,4 +1,5 @@
 import searchIcon from "./searchIcon";
+import toggleUnit from "./toogleUnit";
 
 export default function initWeather() {
   // section
@@ -8,6 +9,7 @@ export default function initWeather() {
   weather.appendChild(initWeatherTop());
   weather.appendChild(initWeatherMiddle());
   weather.appendChild(initWeatherBottom());
+
   return weather;
 }
 
@@ -59,11 +61,19 @@ function initWeatherMiddle() {
   unit.classList.add("unit");
   unit.dataset.type = "temp";
   const temp = document.createElement("h1");
+  temp.classList.add("value");
+  temp.dataset.type = "temp";
   temp.id = "main-temp";
   tempDiv.appendChild(temp);
   tempDiv.appendChild(dot);
   tempDiv.appendChild(unit);
   weatherMiddle.appendChild(tempDiv);
+
+  weatherMiddle.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggleUnit();
+  });
+
   return weatherMiddle;
 }
 
