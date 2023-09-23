@@ -1,41 +1,83 @@
-import example from "../dummy";
+import searchIcon from "./searchIcon";
+import mkWeatherTime from "./mkWeatherTime";
 
-function mkWeather(data = example) {
-  console.log(data);
+//mkWeather display info based on type of forecast
+// types are 'current', 'hourly' and 'day'
+
+function mkWeather(data, type) {
+  //   console.log(data);
 
   // section
   const weather = document.createElement("section");
   weather.classList.add("chunk");
   weather.classList.add("weather");
-
-  // top section
-  const weatherTop = document.createElement("div");
-  weatherTop.classList.add("weather-top");
-
-  const weatherLocale = document.createElement("div");
-  const city = document.createElement("h2");
-  city.innerHTML = data.location.name;
-  const regionInfo = document.createElement("p");
-  regionInfo.innerHTML = `${data.location.region}, ${data.location.country}`;
-  const date = new Date(data.current.last_updated_epoch);
-  let hour = Number(date.getHours());
-  let suffix = "AM";
-  if (hour > 12) {
-    suffix = "PM";
-    hour = hour % 12;
-  }
-  const min = date.getMinutes();
-  const localTime = document.createElement("h3");
-  localTime.innerHTML = `Local time ${hour}:${min} ${suffix}`;
-
-  weatherLocale.appendChild(city);
-  weatherLocale.appendChild(regionInfo);
-  weatherLocale.appendChild(localTime);
-  weatherTop.appendChild(weatherLocale);
-
+  const weatherTop = mkWeatherTop(data, type);
+  const weatherMiddle = mkWeatherMiddle(data, type);
   weather.appendChild(weatherTop);
-
+  weather.appendChild(weatherMiddle);
   return weather;
 }
 
 export default mkWeather;
+
+function mkWeatherTop(data, type) {
+  const weatherTop = document.createElement("div");
+  weatherTop.classList.add("weather-top");
+
+  //   // locale and
+  const weatherLocale = document.createElement("div");
+  weatherLocale.classList.add("weather-locale");
+  const city = document.createElement("h2");
+  city.innerHTML = data.location.name;
+  const regionInfo = document.createElement("p");
+  regionInfo.innerHTML = `${data.location.region}, ${data.location.country}`;
+  weatherLocale.appendChild(city);
+  weatherLocale.appendChild(regionInfo);
+  let time;
+
+  if (type == "current") {
+    time = mkWeatherTime(data.current);
+    weatherLocale.appendChild(time);
+  }
+  //todo insert other types here using if
+
+  //   //query input
+  const inputDiv = document.createElement("div");
+  inputDiv.classList.add("weather-input");
+  const queryInput = document.createElement("input");
+  queryInput.setAttribute("type", "text");
+  queryInput.setAttribute("placeHolder", "Search Location...");
+  inputDiv.appendChild(queryInput);
+  inputDiv.appendChild(searchIcon);
+
+  weatherTop.appendChild(weatherLocale);
+  weatherTop.appendChild(inputDiv);
+  return weatherTop;
+}
+
+function mkWeatherMiddle(data, type) {
+  const weatherMiddle = document.createElement("div");
+  weatherMiddle.classList.add("weather-middle");
+  let source = null;
+  if (type == "current") {
+    source = data.current;
+  }
+  //todo insert other types here using if
+  if (source != null) {
+    const icon = new Image();
+    icon.src = source.condition.icon;
+    weatherMiddle.appendChild(icon);
+    const desc = document.createElement("h2");
+    desc.innerHTML = source.condition.text;
+    weatherMiddle.appendChild(desc);
+    const tempDiv = document.createElement("div");
+    const dot = document.createElement("p");
+    dot.innerHTML = "º";
+    const temp = document.createElement("h1");
+    temp.innerHTML = source.temp_f;
+    tempDiv.appendChild(temp);
+    tempDiv.appendChild(dot);
+    weatherMiddle.appendChild(tempDiv);
+  }
+  return weatherMiddle;
+}

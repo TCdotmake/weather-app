@@ -5,9 +5,9 @@ import searchIcon from "./searchIcon";
 import mkWeather from "./mkWeather";
 
 const body = document.body;
-body.appendChild(mkWeather());
 
-// (async () => {
-//   const data = await getData("sarasota");
-//   console.log(data);
-// })();
+getData("sarasota")
+  .then((data) => mkWeather(data, "current"))
+  .then((element) => {
+    body.appendChild(element);
+  });
