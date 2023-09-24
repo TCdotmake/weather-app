@@ -91,4 +91,13 @@
     line-height: 130%;
     font-weight: 200;
   }
+  > div {
+    display: flex;
+    flex-direction: row;
+    > p {
+      font-size: 1.125rem;
+      line-height: 130%;
+      font-weight: 200;
+    }
+  }
 }

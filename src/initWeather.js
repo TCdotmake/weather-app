@@ -55,8 +55,7 @@ function initWeatherMiddle() {
   desc.id = "main-desc";
   weatherMiddle.appendChild(desc);
   const tempDiv = document.createElement("div");
-  const dot = document.createElement("p");
-  dot.innerHTML = "º";
+
   const unit = document.createElement("p");
   unit.classList.add("unit");
   unit.dataset.type = "temp";
@@ -65,7 +64,7 @@ function initWeatherMiddle() {
   temp.dataset.type = "temp";
   temp.id = "main-temp";
   tempDiv.appendChild(temp);
-  tempDiv.appendChild(dot);
+
   tempDiv.appendChild(unit);
   weatherMiddle.appendChild(tempDiv);
 
@@ -80,12 +79,49 @@ function initWeatherMiddle() {
 function initWeatherBottom() {
   const weatherBottom = document.createElement("div");
   weatherBottom.classList.add("weather-bottom");
-  const feel = document.createElement("p");
-  feel.id = "feel";
-  const humidity = document.createElement("p");
-  humidity.id = "humidity";
-  const wind = document.createElement("p");
-  wind.id = "wind";
+
+  const feel = document.createElement("div");
+  const feelStr = document.createElement("p");
+  feelStr.innerHTML = "Feels like: ";
+  const feelVal = document.createElement("p");
+  feelVal.id = "feel-val";
+  feelVal.classList.add("value");
+  feelVal.dataset.type = "temp";
+  const feelUnit = document.createElement("p");
+  feelUnit.classList.add("unit");
+  feelUnit.dataset.type = "temp";
+  feel.appendChild(feelStr);
+  feel.appendChild(feelVal);
+  feel.appendChild(feelUnit);
+
+  const humidity = document.createElement("div");
+  const humStr = document.createElement("p");
+  humStr.innerHTML = "Humidity: ";
+  const humVal = document.createElement("p");
+  humVal.id = "hum-val";
+  const humUnit = document.createElement("p");
+  humUnit.innerHTML = "%";
+  humidity.appendChild(humStr);
+  humidity.appendChild(humVal);
+  humidity.appendChild(humUnit);
+
+  const wind = document.createElement("div");
+  const windStr = document.createElement("p");
+  windStr.innerHTML = "Wind: ";
+  const windDir = document.createElement("p");
+  windDir.id = "wind-dir";
+  const windVal = document.createElement("p");
+  windVal.id = "wind-val";
+  windVal.classList.add("value");
+  windVal.dataset.type = "wind";
+  const windUnit = document.createElement("p");
+  windUnit.classList.add("unit");
+  windUnit.dataset.type = "wind";
+  wind.appendChild(windStr);
+  wind.appendChild(windDir);
+  wind.appendChild(windVal);
+  wind.appendChild(windUnit);
+
   const vis = document.createElement("p");
   vis.id = "vis";
   const uv = document.createElement("p");

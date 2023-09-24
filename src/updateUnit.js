@@ -4,39 +4,45 @@ export default function updateUnit() {
   changeUnit();
 
   const values = document.querySelectorAll(".value");
-  const temps = [];
   for (let n of values) {
+    //temp
     if (n.dataset.type == "temp") {
-      temps.push(n);
+      if (PREF.unit == "imperial") {
+        n.innerHTML = n.dataset.tempF;
+      } else {
+        n.innerHTML = n.dataset.tempC;
+      }
     }
-  }
-  if (PREF.unit == "imperial") {
-    for (let n of temps) {
-      n.innerHTML = n.dataset.tempF;
-    }
-  } else {
-    for (let n of temps) {
-      n.innerHTML = n.dataset.tempC;
+    //wind
+    if (n.dataset.type == "wind") {
+      if (PREF.unit == "imperial") {
+        n.innerHTML = n.dataset.mph;
+      } else {
+        n.innerHTML = n.dataset.kph;
+      }
     }
   }
 }
 
 function changeUnit() {
   const units = document.querySelectorAll(".unit");
-  const temps = [];
-  for (let n of units) {
-    if (n.dataset.type == "temp") {
-      temps.push(n);
-    }
-  }
 
-  if (PREF.unit == "imperial") {
-    for (let n of temps) {
-      n.innerHTML = "F";
+  for (let n of units) {
+    // temp
+    if (n.dataset.type == "temp") {
+      if (PREF.unit == "imperial") {
+        n.innerHTML = "ºF";
+      } else {
+        n.innerHTML = "ºC";
+      }
     }
-  } else {
-    for (let n of temps) {
-      n.innerHTML = "C";
+    // wind
+    if (n.dataset.type == "wind") {
+      if (PREF.unit == "imperial") {
+        n.innerHTML = "MPH";
+      } else {
+        n.innerHTML = "KPH";
+      }
     }
   }
 }
