@@ -61,10 +61,8 @@ function initWeatherMiddle() {
   unit.dataset.type = "temp";
   const temp = document.createElement("h1");
   temp.classList.add("value");
-  temp.dataset.type = "temp";
   temp.id = "main-temp";
   tempDiv.appendChild(temp);
-
   tempDiv.appendChild(unit);
   weatherMiddle.appendChild(tempDiv);
 
@@ -79,21 +77,20 @@ function initWeatherMiddle() {
 function initWeatherBottom() {
   const weatherBottom = document.createElement("div");
   weatherBottom.classList.add("weather-bottom");
-
+  //feels like
   const feel = document.createElement("div");
   const feelStr = document.createElement("p");
   feelStr.innerHTML = "Feels like: ";
   const feelVal = document.createElement("p");
   feelVal.id = "feel-val";
   feelVal.classList.add("value");
-  feelVal.dataset.type = "temp";
   const feelUnit = document.createElement("p");
   feelUnit.classList.add("unit");
   feelUnit.dataset.type = "temp";
   feel.appendChild(feelStr);
   feel.appendChild(feelVal);
   feel.appendChild(feelUnit);
-
+  //humidity
   const humidity = document.createElement("div");
   const humStr = document.createElement("p");
   humStr.innerHTML = "Humidity: ";
@@ -104,7 +101,7 @@ function initWeatherBottom() {
   humidity.appendChild(humStr);
   humidity.appendChild(humVal);
   humidity.appendChild(humUnit);
-
+  //wind direction&speed
   const wind = document.createElement("div");
   const windStr = document.createElement("p");
   windStr.innerHTML = "Wind: ";
@@ -113,7 +110,6 @@ function initWeatherBottom() {
   const windVal = document.createElement("p");
   windVal.id = "wind-val";
   windVal.classList.add("value");
-  windVal.dataset.type = "wind";
   const windUnit = document.createElement("p");
   windUnit.classList.add("unit");
   windUnit.dataset.type = "wind";
@@ -121,9 +117,20 @@ function initWeatherBottom() {
   wind.appendChild(windDir);
   wind.appendChild(windVal);
   wind.appendChild(windUnit);
+  //visibility
+  const vis = document.createElement("div");
+  const visStr = document.createElement("p");
+  visStr.innerHTML = "Visibility:";
+  const visVal = document.createElement("p");
+  visVal.id = "vis-val";
+  visVal.classList.add("value");
+  const visUnit = document.createElement("p");
+  visUnit.classList.add("unit");
+  visUnit.dataset.type = "distance";
+  vis.appendChild(visStr);
+  vis.appendChild(visVal);
+  vis.appendChild(visUnit);
 
-  const vis = document.createElement("p");
-  vis.id = "vis";
   const uv = document.createElement("p");
   uv.id = "uv";
   weatherBottom.appendChild(feel);

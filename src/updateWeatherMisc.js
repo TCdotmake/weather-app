@@ -5,30 +5,41 @@ export default function updateWeatherMisc(data) {
     source = data.current;
   }
   if (source != null) {
-    //feel
-    const feelVal = document.getElementById("feel-val");
-    feelVal.dataset.tempF = source.feelslike_f;
-    feelVal.dataset.tempC = source.feelslike_c;
-    let temp;
-    if (PREF.unit != "imperial") {
-      temp = feelVal.dataset.tempC;
-    } else {
-      temp = feelVal.dataset.tempF;
-    }
-    feelVal.innerHTML = temp;
+    //single unit values
     //humidity
     document.getElementById("hum-val").innerHTML = source.humidity;
-    //wind
+    //wind direction
     document.getElementById("wind-dir").innerHTML = source.wind_dir;
+
+    //imperial and metric
+    const valArr = [];
+
+    //feel
+    const feelVal = document.getElementById("feel-val");
+    feelVal.dataset.imp = source.feelslike_f;
+    feelVal.dataset.met = source.feelslike_c;
+    valArr.push(feelVal);
+
+    //wind speed
     const windVal = document.getElementById("wind-val");
-    windVal.dataset.mph = source.wind_mph;
-    windVal.dataset.kph = source.wind_kph;
-    let speed;
-    if (PREF.unit != "imperial") {
-      speed = windVal.dataset.kph;
-    } else {
-      speed = windVal.dataset.mph;
+    windVal.dataset.imp = source.wind_mph;
+    windVal.dataset.met = source.wind_kph;
+    valArr.push(windVal);
+
+    //visibility
+    const visVal = document.getElementById("vis-val");
+    visVal.dataset.imp = source.vis_miles;
+    visVal.dataset.met = source.vis_km;
+    valArr.push(visVal);
+
+    for (let item of valArr) {
+      let value;
+      if (PREF.unit == "imperial") {
+        value = item.dataset.imp;
+      } else {
+        value = item.dataset.met;
+      }
+      item.innerHTML = value;
     }
-    windVal.innerHTML = speed;
   }
 }

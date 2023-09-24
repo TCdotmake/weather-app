@@ -8,13 +8,13 @@ export default function updateWeatherBody(data) {
     document.getElementById("main-icon").src = source.condition.icon;
     document.getElementById("main-desc").innerHTML = source.condition.text;
     const mainTemp = document.getElementById("main-temp");
-    mainTemp.dataset.tempC = source.temp_c;
-    mainTemp.dataset.tempF = source.temp_f;
+    mainTemp.dataset.met = source.temp_c;
+    mainTemp.dataset.imp = source.temp_f;
     let temp;
     if (PREF.unit != "imperial") {
-      temp = mainTemp.dataset.tempC;
+      temp = mainTemp.dataset.met;
     } else {
-      temp = mainTemp.dataset.tempF;
+      temp = mainTemp.dataset.imp;
     }
     mainTemp.innerHTML = temp;
   }

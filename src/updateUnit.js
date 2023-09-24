@@ -1,25 +1,17 @@
 import PREF from "./loadPref";
 
 export default function updateUnit() {
+  changeValue();
   changeUnit();
+}
 
+function changeValue() {
   const values = document.querySelectorAll(".value");
   for (let n of values) {
-    //temp
-    if (n.dataset.type == "temp") {
-      if (PREF.unit == "imperial") {
-        n.innerHTML = n.dataset.tempF;
-      } else {
-        n.innerHTML = n.dataset.tempC;
-      }
-    }
-    //wind
-    if (n.dataset.type == "wind") {
-      if (PREF.unit == "imperial") {
-        n.innerHTML = n.dataset.mph;
-      } else {
-        n.innerHTML = n.dataset.kph;
-      }
+    if (PREF.unit == "imperial") {
+      n.innerHTML = n.dataset.imp;
+    } else {
+      n.innerHTML = n.dataset.met;
     }
   }
 }
