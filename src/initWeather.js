@@ -58,6 +58,8 @@ function initWeatherMiddle() {
 
   const unit = document.createElement("p");
   unit.classList.add("unit");
+  unit.dataset.imp = "ºF";
+  unit.dataset.met = "ºC";
   unit.dataset.type = "temp";
   const temp = document.createElement("h1");
   temp.classList.add("value");
@@ -86,6 +88,8 @@ function initWeatherBottom() {
   feelVal.classList.add("value");
   const feelUnit = document.createElement("p");
   feelUnit.classList.add("unit");
+  feelUnit.dataset.imp = "ºF";
+  feelUnit.dataset.met = "ºC";
   feelUnit.dataset.type = "temp";
   feel.appendChild(feelStr);
   feel.appendChild(feelVal);
@@ -112,7 +116,8 @@ function initWeatherBottom() {
   windVal.classList.add("value");
   const windUnit = document.createElement("p");
   windUnit.classList.add("unit");
-  windUnit.dataset.type = "wind";
+  windUnit.dataset.imp = "MPH";
+  windUnit.dataset.met = "KPH";
   wind.appendChild(windStr);
   wind.appendChild(windDir);
   wind.appendChild(windVal);
@@ -126,7 +131,8 @@ function initWeatherBottom() {
   visVal.classList.add("value");
   const visUnit = document.createElement("p");
   visUnit.classList.add("unit");
-  visUnit.dataset.type = "distance";
+  visUnit.dataset.imp = "MI";
+  visUnit.dataset.met = "KM";
   vis.appendChild(visStr);
   vis.appendChild(visVal);
   vis.appendChild(visUnit);
