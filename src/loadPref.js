@@ -10,5 +10,13 @@ function initPref() {
   return data;
 }
 
-const PREF = localLoad("tcdotmakeWatherApp") || initPref();
+let PREF = localLoad("tcdotmakeWatherApp") || initPref();
+PREF = {
+  ...PREF,
+  setData(data) {
+    this.data = structuredClone(data);
+    console.log("data from PREF");
+    console.log(this.data);
+  },
+};
 export default PREF;

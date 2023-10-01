@@ -1,0 +1,43 @@
+#locale {
+  text-align: end;
+  color: var(--darker);
+  line-height: 140%;
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 2rem;
+    > div {
+      > h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        line-height: 140%;
+      }
+      > h3 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 200%;
+      }
+      > .astro-sub {
+        display: flex;
+        flex-direction: column;
+        text-transform: capitalize;
+        gap: 0;
+      }
+      > div {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: end;
+      }
+    }
+  }
+}
+.astro {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1.5rem;
+}

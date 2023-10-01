@@ -131,14 +131,20 @@ function initWeatherBottom() {
   visVal.classList.add("value");
   const visUnit = document.createElement("p");
   visUnit.classList.add("unit");
-  visUnit.dataset.imp = "MI";
+  visUnit.dataset.imp = "MILES";
   visUnit.dataset.met = "KM";
   vis.appendChild(visStr);
   vis.appendChild(visVal);
   vis.appendChild(visUnit);
 
-  const uv = document.createElement("p");
-  uv.id = "uv";
+  const uv = document.createElement("div");
+  const uvStr = document.createElement("p");
+  uvStr.innerHTML = "UV Index:";
+  const uvVal = document.createElement("p");
+  uvVal.id = "uv-val";
+  uv.appendChild(uvStr);
+  uv.appendChild(uvVal);
+
   weatherBottom.appendChild(feel);
   weatherBottom.appendChild(humidity);
   weatherBottom.appendChild(wind);

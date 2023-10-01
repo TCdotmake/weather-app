@@ -9,6 +9,8 @@
 /* element styles */
 @import "./chunk.css";
 @import "./weather.css";
+@import "./nav.css";
+@import "./localInfo.css";
 html {
   font-family: "Saira Condensed";
 }

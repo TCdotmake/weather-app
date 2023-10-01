@@ -10,7 +10,7 @@ export default function updateWeatherMisc(data) {
     document.getElementById("hum-val").innerHTML = source.humidity;
     //wind direction
     document.getElementById("wind-dir").innerHTML = source.wind_dir;
-
+    document.getElementById("uv-val").innerHTML = source.uv;
     //imperial and metric
     const valArr = [];
 

@@ -13,4 +13,6 @@ export default function updateLocale(data) {
     let time = document.getElementById("time");
     time.innerHTML = mkWeatherTime(data.current.last_updated_epoch);
   }
+  document.getElementById("lat").innerHTML = `Lat: ${data.location.lat}`;
+  document.getElementById("long").innerHTML = `Long: ${data.location.lon}`;
 }
