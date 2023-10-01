@@ -5,7 +5,10 @@ export default function initLocale() {
   const locale = document.createElement("section");
   locale.classList.add("chunk");
   locale.id = "locale";
-  locale.appendChild(mkNav());
+  const localeNav = mkNav();
+  localeNav.id = "locale-nav";
+  localeNav.firstChild.firstChild.classList.add("selected");
+  locale.appendChild(localeNav);
   locale.appendChild(initLocaleContent());
   return locale;
 }

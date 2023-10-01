@@ -1,7 +1,7 @@
 .nav {
   text-align: center;
   > ul {
-    color: var(--darker);
+    color: var(--primary);
     font-size: 1.25rem;
     display: flex;
     flex-direction: row;
@@ -9,7 +9,10 @@
     gap: 2rem;
     > li {
       line-height: 140%;
+    }
+    > .selected {
       border-bottom: 1px solid var(--darker);
+      color: var(--darker);
     }
   }
 }

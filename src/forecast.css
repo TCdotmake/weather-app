@@ -1,0 +1,10 @@
+#forecast-content {
+  color: var(--darker);
+  display: flex;
+  flex: row;
+  justify-content: center;
+  /*cards*/
+  > div {
+    text-align: center;
+  }
+}

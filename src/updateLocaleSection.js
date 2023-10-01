@@ -27,17 +27,24 @@ function updateForecast(obj) {
     document.getElementById(
       "rain-chance"
     ).innerHTML = `Chance of Rain: ${day.daily_chance_of_rain}%`;
+  } else {
+    document.getElementById("rain-chance").innerHTML = "";
   }
   if (day.daily_chance_of_snow > 0) {
     document.getElementById(
       "snow-chance"
     ).innerHTML = `Chance of Snow: ${day.daily_chance_of_snow}%`;
+  } else {
+    document.getElementById("snow-chance").innerHTML = "";
   }
 }
 
 function updateDate(obj) {
-  const date = new Date(obj.date);
+  const dateArr = obj.date.split("-");
+  dateArr[1] -= 1;
+  const date = new Date(...dateArr);
+
   const month = date.toLocaleString("default", { month: "long" });
-  const day = obj.date.slice(-2);
+  const day = date.getDate();
   document.getElementById("locale-date").innerHTML = `${month} ${day}`;
 }
