@@ -12,6 +12,7 @@
 @import "./nav.css";
 @import "./localInfo.css";
 @import "./forecast.css";
+@import "./hourly.css";
 html {
   font-family: "Saira Condensed";
 }

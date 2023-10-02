@@ -1,7 +1,7 @@
 import initForecastContent from "./initForecastContent";
 import mkNav from "./mkNav";
 
-export default function initForecast(data) {
+export default function initForecast() {
   //section
   const forecast = document.createElement("section");
   forecast.classList.add("chunk");

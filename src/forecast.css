@@ -1,10 +1,31 @@
+#forecast {
+  /*hide for development*/
+  display: none;
+}
+
 #forecast-content {
   color: var(--darker);
+  height: 100%;
   display: flex;
   flex: row;
   justify-content: center;
+  align-items: center;
+  padding-bottom: 4rem;
   /*cards*/
   > div {
     text-align: center;
+    padding: 1rem;
+    height: fit-content;
+    > h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+    > p {
+      font-weight: 200;
+      line-height: 120%;
+    }
+    > img {
+      margin: -0.5rem 0;
+    }
   }
 }
