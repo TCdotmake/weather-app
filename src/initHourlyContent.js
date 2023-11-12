@@ -80,11 +80,15 @@ function mkGraph(y1, y2, x1, x2) {
   min.innerHTML = y2;
   ylabel.appendChild(max);
   ylabel.appendChild(min);
-  graph.appendChild(ylabel);
+  // graph.appendChild(ylabel);
 
-  for (let i = 0; i < 8; i++) {
-    graph.appendChild(mkBarDiv());
+  //bars
+  const barContainer = document.createElement("div");
+  barContainer.classList.add("bar-container");
+  for (let i = 0; i < 24; i++) {
+    barContainer.appendChild(mkBarDiv());
   }
+  graph.appendChild(barContainer);
 
   const xlabel1 = document.createElement("p");
   const xlabel2 = document.createElement("p");
@@ -92,8 +96,8 @@ function mkGraph(y1, y2, x1, x2) {
   xlabel1.classList.add("xlabel1");
   xlabel2.innerHTML = x2;
   xlabel2.classList.add("xlabel2");
-  graph.appendChild(xlabel1);
-  graph.appendChild(xlabel2);
+  // graph.appendChild(xlabel1);
+  // graph.appendChild(xlabel2);
 
   outline.appendChild(graph);
   return outline;

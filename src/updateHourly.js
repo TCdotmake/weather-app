@@ -1,8 +1,8 @@
 export default function updateHourly(data) {
   console.log("from updateHourly");
   const dayArr = data.forecast.forecastday;
-  const maxPercent = 95;
-  const minPercent = 40;
+  const maxPercent = 90;
+  const minPercent = 35;
   const rangePercent = maxPercent - minPercent;
   const heightArr = [];
   for (let day of dayArr) {
@@ -22,7 +22,7 @@ export default function updateHourly(data) {
   }
   console.log(heightArr);
   const barArr = document.querySelectorAll(".graph-bar");
-  for (let i = 0; i < barArr.length; i++) {
+  for (let i = 0; i < heightArr.length; i++) {
     barArr[i].style.height = `${heightArr[i]}%`;
   }
 }
