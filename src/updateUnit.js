@@ -26,23 +26,4 @@ function changeUnit() {
       n.innerHTML = n.dataset.met;
     }
   }
-
-  // for (let n of units) {
-  //   // temp
-  //   if (n.dataset.type == "temp") {
-  //     if (PREF.unit == "imperial") {
-  //       n.innerHTML = "ºF";
-  //     } else {
-  //       n.innerHTML = "ºC";
-  //     }
-  //   }
-  //   // wind
-  //   if (n.dataset.type == "wind") {
-  //     if (PREF.unit == "imperial") {
-  //       n.innerHTML = "MPH";
-  //     } else {
-  //       n.innerHTML = "KPH";
-  //     }
-  //   }
-  // }
 }

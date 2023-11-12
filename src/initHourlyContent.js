@@ -47,6 +47,20 @@ function addGraphs(content) {
   const g3 = mkGraph(y1, y2, "4PM", "11PM");
   g3.classList.add("g3");
   content.append(g1, g2, g3);
+  const g4 = mkGraph(y1, y2, "12AM", "7AM");
+  g4.classList.add("g4");
+  const g5 = mkGraph(y1, y2, "8AM", "3PM");
+  g5.classList.add("g5");
+  const g6 = mkGraph(y1, y2, "4PM", "11PM");
+  g6.classList.add("g6");
+  content.append(g4, g5, g6);
+  const g7 = mkGraph(y1, y2, "12AM", "7AM");
+  g7.classList.add("g7");
+  const g8 = mkGraph(y1, y2, "8AM", "3PM");
+  g8.classList.add("g8");
+  const g9 = mkGraph(y1, y2, "4PM", "11PM");
+  g9.classList.add("g9");
+  content.append(g7, g8, g9);
 }
 
 function mkGraph(y1, y2, x1, x2) {
