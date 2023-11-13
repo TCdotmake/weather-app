@@ -42,6 +42,13 @@ export default function updateHourly(data) {
     } else {
       lowDOM.innerHTML = lowDOM.dataset.met;
     }
+    //update date
+    const dateArr = dayArr[index].date.split("-");
+    dateArr[1] -= 1;
+    const date = new Date(...dateArr);
+    const month = date.toLocaleString("default", { month: "short" });
+    const day = date.getDate();
+    document.getElementById(`${name}-date`).innerHTML = `${month} ${day}`;
   }
   const barArr = document.querySelectorAll(".graph-bar");
   for (let i = 0; i < heightArr.length; i++) {
