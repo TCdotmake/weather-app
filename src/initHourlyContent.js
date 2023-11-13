@@ -6,31 +6,51 @@ export default function initHourlyContent() {
   const content = document.createElement("div");
   content.id = "hourly-content";
 
+  const graphContainer = document.createElement("div");
+  graphContainer.classList.add("graph-container");
+
+  content.append(graphContainer);
+
   //graphs
-  addGraphs(content);
+  addGraphs(graphContainer);
 
   //graph nav
   const graphNav = document.createElement("nav");
   graphNav.id = "graph-nav";
   const ul = document.createElement("ul");
-  const d1 = document.createElement("li");
-  const d2 = document.createElement("li");
-  const d3 = document.createElement("li");
-  const left = document.createElement("li");
-  const right = document.createElement("li");
-  const la = mkLeftIcon();
-  la.classList.add("arrow");
-  const ra = mkRightIcon();
-  ra.classList.add("arrow");
-  left.appendChild(la);
-  right.appendChild(ra);
-  const arr = [d1, d2, d3];
-  for (let item of arr) {
-    const dot = mkDotIcon();
-    dot.classList.add("dot");
-    item.appendChild(dot);
+
+  const graphs = ["g1", "g2", "g3"];
+  const btnArr = [
+    document.createElement("li"),
+    document.createElement("li"),
+    document.createElement("li"),
+  ];
+  for (let index in graphs) {
+    const btn = document.createElement("div");
+    btn.classList.add("graph-btn");
+    btn.id = `${graphs[index]}-btn`;
+    btnArr[index].append(btn);
+    btn.dataset.name = graphs[index];
+    if (graphs[index] == "g1") {
+      btn.classList.add("graph-selected");
+    }
+    btn.addEventListener("click", (e) => {
+      const name = e.target.dataset.name;
+      let btns = document.querySelectorAll(".graph-btn");
+      for (let n of btns) {
+        n.classList.remove("graph-selected");
+      }
+      e.target.classList.add("graph-selected");
+
+      let graphs = document.querySelectorAll(".outline");
+      for (let n of graphs) {
+        n.style.display = "none";
+      }
+      document.querySelector(`.outline.${name}`).style.display = "block";
+    });
   }
-  ul.append(left, d1, d2, d3, right);
+
+  ul.append(...btnArr);
   graphNav.appendChild(ul);
 
   content.appendChild(graphNav);

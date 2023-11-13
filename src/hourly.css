@@ -7,6 +7,12 @@
   height: 100%;
   padding-bottom: 3rem;
 }
+
+.graph-container {
+  width: 20rem;
+  height: 13.75rem;
+}
+
 .outline {
   width: 20rem;
   height: 13.75rem;
@@ -71,6 +77,9 @@
   > ul {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 
@@ -114,4 +123,16 @@
   > p:nth-child(2) {
     margin-left: auto;
   }
+}
+
+.graph-btn {
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 2px solid var(--primary);
+}
+
+.graph-selected {
+  background-color: var(--primary);
 }
