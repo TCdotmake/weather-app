@@ -1,3 +1,6 @@
+import PREF from "./loadPref";
+import tempFtoC from "./tempFtoC";
+
 export default function updateHourly(data) {
   console.log("from updateHourly");
   const dayArr = data.forecast.forecastday;
@@ -5,9 +8,11 @@ export default function updateHourly(data) {
   const minPercent = 35;
   const rangePercent = maxPercent - minPercent;
   const heightArr = [];
-  for (let day of dayArr) {
+  const graphArr = ["g1", "g2", "g3"];
+  for (let index in dayArr) {
+    //calculate height for bars
     const tempArr = [];
-    for (let n of day.hour) {
+    for (let n of dayArr[index].hour) {
       tempArr.push(n.temp_f);
     }
     const max = Math.max(...tempArr);
@@ -19,8 +24,25 @@ export default function updateHourly(data) {
       );
       heightArr.push(height);
     }
+    //update text for min and max
+    const name = graphArr[index];
+    const hiDOM = document.getElementById(`${name}-hi-val`);
+    const lowDOM = document.getElementById(`${name}-low-val`);
+    hiDOM.dataset.imp = `${max}ºF`;
+    hiDOM.dataset.met = `${tempFtoC(max)}ºC`;
+    if (PREF.unit == "imperial") {
+      hiDOM.innerHTML = hiDOM.dataset.imp;
+    } else {
+      hiDOM.innerHTML = hiDOM.dataset.met;
+    }
+    lowDOM.dataset.imp = `${min}ºF`;
+    lowDOM.dataset.met = `${tempFtoC(min)}ºC`;
+    if (PREF.unit == "imperial") {
+      lowDOM.innerHTML = lowDOM.dataset.imp;
+    } else {
+      lowDOM.innerHTML = lowDOM.dataset.met;
+    }
   }
-  console.log(heightArr);
   const barArr = document.querySelectorAll(".graph-bar");
   for (let i = 0; i < heightArr.length; i++) {
     barArr[i].style.height = `${heightArr[i]}%`;
