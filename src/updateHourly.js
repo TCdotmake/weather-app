@@ -1,5 +1,6 @@
 import PREF from "./loadPref";
 import tempFtoC from "./tempFtoC";
+import updateTemp from "./updateTemp";
 
 export default function updateHourly(data) {
   console.log("from updateHourly");
@@ -28,20 +29,22 @@ export default function updateHourly(data) {
     const name = graphArr[index];
     const hiDOM = document.getElementById(`${name}-hi-val`);
     const lowDOM = document.getElementById(`${name}-low-val`);
-    hiDOM.dataset.imp = `${max}ºF`;
-    hiDOM.dataset.met = `${tempFtoC(max)}ºC`;
-    if (PREF.unit == "imperial") {
-      hiDOM.innerHTML = hiDOM.dataset.imp;
-    } else {
-      hiDOM.innerHTML = hiDOM.dataset.met;
-    }
-    lowDOM.dataset.imp = `${min}ºF`;
-    lowDOM.dataset.met = `${tempFtoC(min)}ºC`;
-    if (PREF.unit == "imperial") {
-      lowDOM.innerHTML = lowDOM.dataset.imp;
-    } else {
-      lowDOM.innerHTML = lowDOM.dataset.met;
-    }
+    // hiDOM.dataset.imp = `${max}ºF`;
+    // hiDOM.dataset.met = `${tempFtoC(max)}ºC`;
+    // if (PREF.unit == "imperial") {
+    //   hiDOM.innerHTML = hiDOM.dataset.imp;
+    // } else {
+    //   hiDOM.innerHTML = hiDOM.dataset.met;
+    // }
+    // lowDOM.dataset.imp = `${min}ºF`;
+    // lowDOM.dataset.met = `${tempFtoC(min)}ºC`;
+    // if (PREF.unit == "imperial") {
+    //   lowDOM.innerHTML = lowDOM.dataset.imp;
+    // } else {
+    //   lowDOM.innerHTML = lowDOM.dataset.met;
+    // }
+    updateTemp(hiDOM, max);
+    updateTemp(lowDOM, min);
     //update date
     const dateArr = dayArr[index].date.split("-");
     dateArr[1] -= 1;
