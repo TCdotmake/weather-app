@@ -1,0 +1,28 @@
+.section-container {
+  width: min(360px, 100vw);
+  aspect-ratio: 1/1;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--primary);
+}
+
+#main-header {
+  grid-area: 1/1/2/6;
+}
+
+#main-time {
+  grid-area: 2/1/5/3;
+}
+
+#main-misc {
+  grid-area: 5/1/9/3;
+}
+
+#main-forecast {
+  grid-area: 2/3/9/6;
+}
+
+.main-element {
+  background: var(--primary);
+  border-radius: 1rem;
+}

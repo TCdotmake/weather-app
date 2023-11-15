@@ -7,7 +7,9 @@
 /* icon */
 @import "./icon.css";
 /* element styles */
+@import "./section-container.css";
 @import "./chunk.css";
+@import "./main.css";
 @import "./weather.css";
 @import "./nav.css";
 @import "./localInfo.css";
@@ -20,4 +22,8 @@ html {
 body {
   min-width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

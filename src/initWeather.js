@@ -30,18 +30,18 @@ function initWeatherTop() {
   weatherLocale.appendChild(time);
 
   //query input
-  const inputDiv = document.createElement("div");
-  inputDiv.classList.add("weather-input");
-  const queryInput = document.createElement("input");
-  queryInput.setAttribute("type", "text");
-  queryInput.setAttribute("placeHolder", "Search Location...");
-  queryInput.id = "queryInput";
-  searchIcon.id = "searchIcon";
-  inputDiv.appendChild(queryInput);
-  inputDiv.appendChild(searchIcon);
+  // const inputDiv = document.createElement("div");
+  // inputDiv.classList.add("weather-input");
+  // const queryInput = document.createElement("input");
+  // queryInput.setAttribute("type", "text");
+  // queryInput.setAttribute("placeHolder", "Search Location...");
+  // queryInput.id = "queryInput";
+  // searchIcon.id = "searchIcon";
+  // inputDiv.appendChild(queryInput);
+  // inputDiv.appendChild(searchIcon);
 
   weatherTop.appendChild(weatherLocale);
-  weatherTop.appendChild(inputDiv);
+  // weatherTop.appendChild(inputDiv);
   return weatherTop;
 }
 
