@@ -44,7 +44,7 @@ function mkTime() {
   const hourMin = document.createElement("p");
   hourMin.id = "main-hour";
   hourMin.innerHTML = "9:25 PM";
-  time.append(label, monthDay, hourMin);
+  time.append(monthDay, hourMin);
 
   return time;
 }
@@ -57,6 +57,25 @@ function mkMisc() {
 
 function mkForecast() {
   const forecast = document.createElement("div");
-  //...
+
+  const icon = new Image();
+  icon.id = "main-icon";
+  const desc = document.createElement("h2");
+  desc.id = "main-desc";
+
+  const tempDiv = document.createElement("div");
+  tempDiv.classList.add("main-temp-div");
+  const unit = document.createElement("p");
+  unit.classList.add("unit");
+  unit.dataset.imp = "ºF";
+  unit.dataset.met = "ºC";
+  unit.dataset.type = "temp";
+  const temp = document.createElement("h1");
+  temp.classList.add("value");
+  temp.id = "main-temp";
+  tempDiv.append(temp, unit);
+
+  forecast.append(icon, desc, tempDiv);
+
   return forecast;
 }
