@@ -35,6 +35,17 @@ function mkHeader() {
 function mkTime() {
   const time = document.createElement("div");
   //...
+  const label = document.createElement("p");
+  label.innerHTML = "Last updated";
+  const monthDay = document.createElement("p");
+  monthDay.id = "main-day";
+
+  monthDay.innerHTML = "November, 15";
+  const hourMin = document.createElement("p");
+  hourMin.id = "main-hour";
+  hourMin.innerHTML = "9:25 PM";
+  time.append(label, monthDay, hourMin);
+
   return time;
 }
 
