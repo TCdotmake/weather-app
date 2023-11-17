@@ -1,7 +1,17 @@
+import updateDistance from "../updateDistance";
 import PREF from "./loadPref";
+import updateWind from "./updateWind";
 export default function updateMain(data) {
   updateTime(data);
   updateWeather(data);
+  document.getElementById("main-humidity").innerHTML =
+    data.current.humidity + "%";
+  const visibility = data.current.vis_miles;
+  const visDom = document.getElementById("main-visibility");
+  updateDistance(visDom, visibility);
+  const wind = document.getElementById("main-wind");
+  updateWind(wind, data);
+  document.getElementById("main-uv").innerHTML = data.current.uv;
 }
 function updateWeather(data) {
   let source = data.current;

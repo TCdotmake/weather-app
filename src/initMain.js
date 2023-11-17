@@ -52,6 +52,24 @@ function mkTime() {
 function mkMisc() {
   const misc = document.createElement("div");
   //...
+  const fields = ["humidity", "wind", "visibility", "uv"];
+  const isval = [0, 1, 1, 0];
+  for (let index in fields) {
+    const item = fields[index];
+    const label = document.createElement("p");
+    if (item === "uv") {
+      label.innerHTML = "UV Index";
+    } else {
+      label.innerHTML = item;
+    }
+    const value = document.createElement("p");
+    value.id = `main-${item}`;
+    if (isval[index]) {
+      value.classList.add("value");
+    }
+    value.innerHTML = item;
+    misc.append(label, value);
+  }
   return misc;
 }
 

@@ -7,7 +7,6 @@
 
 #main-header {
   grid-area: 1/1/3/6;
-  padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,6 +19,14 @@
 
 #main-misc {
   grid-area: 6/1/11/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  > * {
+    text-transform: capitalize;
+  }
+  > *:nth-child(even) {
+    text-align: end;
+  }
 }
 
 #main-forecast {
@@ -30,6 +37,9 @@
   background: var(--primary);
   color: var(--white);
   border-radius: 1rem;
+  padding: 1rem;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .query-input {
