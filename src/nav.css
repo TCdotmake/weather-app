@@ -1,5 +1,8 @@
 .nav {
-  text-align: center;
+  height: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   > ul {
     color: var(--primary);
     font-size: 1.25rem;

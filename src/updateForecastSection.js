@@ -28,11 +28,20 @@ function updateCondition(data) {
 }
 
 function updateDate(data) {
+  const days = document.querySelectorAll(".forecast-day");
   const forecastArr = data.forecast.forecastday;
-  const dateArr = forecastArr[2].date.split("-");
-  dateArr[1] -= 1;
-  const date = new Date(...dateArr);
-  const month = date.toLocaleString("default", { month: "short" });
-  const day = date.getDate();
-  document.getElementById("forecast-date").innerHTML = `${month} ${day}`;
+  for (let i = 0; i < days.length; i++) {
+    const dateArr = forecastArr[i].date.split("-");
+    dateArr[1] -= 1;
+    const date = new Date(...dateArr);
+    const month = date.toLocaleString("default", { month: "short" });
+    const day = date.getDate();
+    days[i].innerHTML = `${month} ${day}`;
+  }
+  // const dateArr = forecastArr[2].date.split("-");
+  // dateArr[1] -= 1;
+  // const date = new Date(...dateArr);
+  // const month = date.toLocaleString("default", { month: "short" });
+  // const day = date.getDate();
+  // document.getElementById("forecast-date").innerHTML = `${month} ${day}`;
 }

@@ -8,9 +8,7 @@ export default function initForecastContent() {
     const card = document.createElement("div");
     const title = document.createElement("h3");
     title.innerHTML = item;
-    if (item == "After") {
-      title.id = "forecast-date";
-    }
+    title.classList.add("forecast-day");
     const img = new Image();
     img.classList.add("forecast-icon");
     const desc = document.createElement("p");
