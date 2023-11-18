@@ -11,3 +11,17 @@
     }
   }
 }
+
+.misc-icon-container {
+  display: grid;
+}
+div.misc-icon {
+  --size: 20px;
+  width: var(--size);
+  aspect-ratio: 1/1;
+  place-self: center;
+  > svg {
+    width: var(--size);
+    aspect-ratio: 1/1;
+  }
+}

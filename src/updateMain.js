@@ -4,6 +4,9 @@ import updateWind from "./updateWind";
 export default function updateMain(data) {
   updateTime(data);
   updateWeather(data);
+  updateMisc(data);
+}
+function updateMisc(data) {
   document.getElementById("main-humidity").innerHTML =
     data.current.humidity + "%";
   const visibility = data.current.vis_miles;
@@ -12,7 +15,10 @@ export default function updateMain(data) {
   const wind = document.getElementById("main-wind");
   updateWind(wind, data);
   document.getElementById("main-uv").innerHTML = data.current.uv;
+  const direction = document.getElementById("main-direction");
+  direction.innerHTML = data.current.wind_dir;
 }
+
 function updateWeather(data) {
   let source = data.current;
   document.getElementById("main-icon").src = source.condition.icon;

@@ -1,3 +1,8 @@
+import directionIcon from "./icons/directionIcon";
+import humidityIcon from "./icons/humidityIcon";
+import uvIcon from "./icons/uvIcon";
+import visibilityIcon from "./icons/visibilityIcon";
+import windIcon from "./icons/windIcon";
 import searchIcon from "./searchIcon";
 export default function initMain() {
   const main = document.createElement("section");
@@ -52,16 +57,12 @@ function mkTime() {
 function mkMisc() {
   const misc = document.createElement("div");
   //...
-  const fields = ["humidity", "wind", "visibility", "uv"];
-  const isval = [0, 1, 1, 0];
+  const fields = ["humidity", "direction", "wind", "visibility", "uv"];
+  const isval = [0, 0, 1, 1, 0];
   for (let index in fields) {
     const item = fields[index];
-    const label = document.createElement("p");
-    if (item === "uv") {
-      label.innerHTML = "UV Index";
-    } else {
-      label.innerHTML = item;
-    }
+    const label = document.createElement("div");
+    label.classList.add("misc-icon-container");
     const value = document.createElement("p");
     value.id = `main-${item}`;
     if (isval[index]) {
@@ -70,6 +71,11 @@ function mkMisc() {
     value.innerHTML = item;
     misc.append(label, value);
   }
+  misc.children[0].append(humidityIcon);
+  misc.children[2].append(directionIcon);
+  misc.children[4].append(windIcon);
+  misc.children[6].append(visibilityIcon);
+  misc.children[8].append(uvIcon);
   return misc;
 }
 
