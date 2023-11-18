@@ -4,7 +4,7 @@ import mkNav from "./mkNav";
 export default function initForecast() {
   //section
   const forecast = document.createElement("section");
-  forecast.classList.add("chunk");
+  forecast.classList.add("section-container");
   forecast.id = "forecast";
   const forecastNav = mkNav();
   forecastNav.id = "forecast-nav";

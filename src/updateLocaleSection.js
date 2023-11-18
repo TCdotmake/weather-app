@@ -1,8 +1,10 @@
 import PREF from "./loadPref";
-export default function updateLocaleSection(obj) {
+import updateLocale from "./updateLocale";
+export default function updateLocaleSection(data) {
+  const obj = data.forecast.forecastday[0];
   updateDate(obj);
   updateForecast(obj);
-
+  updateLocale(data);
   const astro = obj.astro;
   const arr = ["sunrise", "sunset", "moonrise", "moonset"];
   for (let item of arr) {

@@ -94,6 +94,7 @@ function mkForecast() {
   unit.dataset.imp = "ºF";
   unit.dataset.met = "ºC";
   unit.dataset.type = "temp";
+  unit.id = "main-temp-unit";
   const temp = document.createElement("h1");
   temp.classList.add("value");
   temp.id = "main-temp";

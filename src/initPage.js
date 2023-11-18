@@ -7,7 +7,7 @@ import initHourly from "./initHourly";
 import initMain from "./initMain";
 export default function initPage() {
   document.body.append(initMain());
-  document.body.appendChild(initWeather());
+  // document.body.appendChild(initWeather());
   document.body.appendChild(initLocale());
   document.body.appendChild(initForecast());
   document.body.appendChild(initHourly());

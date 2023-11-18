@@ -13,8 +13,8 @@ export default function updateApp(query) {
     console.log(data);
     (async () => {
       updateMain(await data);
-      updateWeather(await data);
-      updateLocaleSection(await data.forecast.forecastday[0]);
+      // updateWeather(await data);
+      updateLocaleSection(await data);
       updateForecastSection(await data);
       updateHourly(await data);
       PREF.setData(await data);

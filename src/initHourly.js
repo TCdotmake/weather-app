@@ -4,7 +4,7 @@ import mkNav from "./mkNav";
 export default function initHourly() {
   //section
   const hourly = document.createElement("section");
-  hourly.classList.add("chunk");
+  hourly.classList.add("section-container");
   hourly.id = "hourly";
   const hourlyNav = mkNav();
   hourlyNav.id = "hourly-nav";
