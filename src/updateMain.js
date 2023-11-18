@@ -1,5 +1,6 @@
 import updateDistance from "../updateDistance";
 import PREF from "./loadPref";
+import updateTemp from "./updateTemp";
 import updateWind from "./updateWind";
 export default function updateMain(data) {
   updateTime(data);
@@ -8,7 +9,7 @@ export default function updateMain(data) {
 }
 function updateMisc(data) {
   document.getElementById("main-humidity").innerHTML =
-    data.current.humidity + "%";
+    data.current.humidity + " %";
   const visibility = data.current.vis_miles;
   const visDom = document.getElementById("main-visibility");
   updateDistance(visDom, visibility);
@@ -20,7 +21,7 @@ function updateMisc(data) {
 }
 
 function updateWeather(data) {
-  let source = data.current;
+  const source = data.current;
   document.getElementById("main-icon").src = source.condition.icon;
   document.getElementById("main-desc").innerHTML = source.condition.text;
   const mainTemp = document.getElementById("main-temp");
@@ -33,6 +34,8 @@ function updateWeather(data) {
     temp = mainTemp.dataset.imp;
   }
   mainTemp.innerHTML = temp;
+  const feeltemp = document.getElementById("feel-temp");
+  updateTemp(feeltemp, source.feelslike_f);
 }
 
 function updateTime(data) {

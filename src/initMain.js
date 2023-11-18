@@ -99,7 +99,18 @@ function mkForecast() {
   temp.id = "main-temp";
   tempDiv.append(temp, unit);
 
-  forecast.append(icon, desc, tempDiv);
+  const feeldiv = document.createElement("div");
+  feeldiv.classList.add("main-temp-div");
+  feeldiv.classList.add("feel-text");
+  const feeltext = document.createElement("span");
+  feeltext.innerHTML = "Feels like";
+  const feeltemp = document.createElement("span");
+  feeltemp.id = "feel-temp";
+  feeltemp.innerHTML = "temp";
+  feeltemp.classList.add("value");
+  feeltemp.classList.add("temp");
+  feeldiv.append(feeltext, feeltemp);
+  forecast.append(icon, desc, tempDiv, feeldiv);
 
   return forecast;
 }
