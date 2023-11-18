@@ -2,7 +2,7 @@
   /*hide while in development*/
   display: block;
   text-align: end;
-  color: var(--darker);
+  color: var(--primary);
   line-height: 140%;
   > div {
     display: flex;

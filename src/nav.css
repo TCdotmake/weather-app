@@ -3,6 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid var(--lighter);
+  border-radius: 1rem;
   > ul {
     color: var(--primary);
     font-size: 1.25rem;
