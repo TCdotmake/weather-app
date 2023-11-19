@@ -1,6 +1,6 @@
 #forecast {
   /*hide for development*/
-  display: block;
+  display: none;
 }
 
 #forecast-content {
