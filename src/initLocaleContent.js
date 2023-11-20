@@ -1,11 +1,14 @@
 export default function initLocaleContent() {
   const content = document.createElement("div");
-
+  content.classList.add("content");
+  content.id = "locale";
   //location info
-  content.appendChild(initLocInfo());
-  content.appendChild(initDailyInfo());
-  content.appendChild(initAstro());
-
+  const inners = document.createElement("div");
+  inners.append(initLocInfo(), initDailyInfo(), initAstro());
+  // content.appendChild(initLocInfo());
+  // content.appendChild(initDailyInfo());
+  // content.appendChild(initAstro());
+  content.append(inners);
   return content;
 }
 

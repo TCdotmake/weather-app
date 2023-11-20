@@ -8,6 +8,7 @@ export default function initMain() {
   const main = document.createElement("section");
   main.classList.add("section-container");
   main.classList.add("main");
+  main.id = "main";
   const names = ["header", "time", "misc", "forecast"];
   const doms = [mkHeader(), mkTime(), mkMisc(), mkForecast()];
   for (let index in names) {

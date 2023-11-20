@@ -5,6 +5,7 @@ export default function initHourly() {
   //section
   const hourly = document.createElement("section");
   hourly.classList.add("section-container");
+  hourly.classList.add("optional");
   hourly.id = "hourly";
   const hourlyNav = mkNav();
   hourlyNav.id = "hourly-nav";

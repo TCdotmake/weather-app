@@ -6,6 +6,8 @@
 @import "./color.css";
 /* icon */
 @import "./icon.css";
+/*general layout*/
+@import "./app.css";
 /* element styles */
 @import "./section-container.css";
 @import "./chunk.css";

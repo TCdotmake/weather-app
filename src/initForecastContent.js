@@ -1,11 +1,13 @@
 export default function initForecastContent() {
   const content = document.createElement("div");
-  content.id = "forecast-content";
+  content.classList.add("content");
+  content.id = "forecast";
 
   const arr = ["Today", "Tomorrow", "After"];
 
   for (let item of arr) {
     const card = document.createElement("div");
+    card.classList = "forecast-card";
     const title = document.createElement("h3");
     title.innerHTML = item;
     title.classList.add("forecast-day");

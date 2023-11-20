@@ -4,6 +4,7 @@ export default function initLocale() {
   //section
   const locale = document.createElement("section");
   locale.classList.add("section-container");
+  locale.classList.add("optional");
   locale.id = "locale";
   const localeNav = mkNav();
   localeNav.id = "locale-nav";

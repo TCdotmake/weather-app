@@ -5,6 +5,7 @@ export default function initForecast() {
   //section
   const forecast = document.createElement("section");
   forecast.classList.add("section-container");
+  forecast.classList.add("optional");
   forecast.id = "forecast";
   const forecastNav = mkNav();
   forecastNav.id = "forecast-nav";

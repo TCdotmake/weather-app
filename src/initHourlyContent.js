@@ -4,8 +4,8 @@ import mkRightIcon from "./mkRightIcon";
 
 export default function initHourlyContent() {
   const content = document.createElement("div");
-  content.id = "hourly-content";
-
+  content.id = "hourly";
+  content.classList.add("content");
   const graphContainer = document.createElement("div");
   graphContainer.classList.add("graph-container");
 

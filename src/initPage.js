@@ -1,15 +1,25 @@
-import initWeather from "./initWeather";
-import initLocale from "./initLocale";
 import updateUnit from "./updateUnit";
 import updateApp from "./updateApp";
-import initForecast from "./initForecast";
-import initHourly from "./initHourly";
+
 import initMain from "./initMain";
+import mkNav from "./mkNav";
+import initLocaleContent from "./initLocaleContent";
+import initForecastContent from "./initForecastContent";
+import initHourlyContent from "./initHourlyContent";
 export default function initPage() {
   const bg = document.createElement("div");
   bg.id = "bg";
   document.body.append(bg);
-  bg.append(initMain(), initLocale(), initForecast(), initHourly());
+
+  bg.append(
+    initMain(),
+    mkNav(),
+    initLocaleContent(),
+    initForecastContent(),
+    initHourlyContent()
+  );
+
+  document.getElementById("locale-btn").classList.add("selected");
 
   updateApp();
   updateUnit();
