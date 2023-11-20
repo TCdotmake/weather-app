@@ -16,10 +16,14 @@
     > li {
       line-height: 140%;
       text-transform: capitalize;
+      padding: 0 0.5rem;
     }
     > .selected {
-      border-bottom: 1px solid var(--darker);
-      color: var(--darker);
+      /* border-bottom: 1px solid var(--darker);
+      color: var(--darker); */
+      color: var(--white);
+      background: var(--primary);
+      border-radius: 5px;
     }
   }
 }

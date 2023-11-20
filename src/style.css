@@ -8,6 +8,8 @@
 @import "./icon.css";
 /*general layout*/
 @import "./app.css";
+/*responsive design*/
+@import "./responsive.css";
 /* element styles */
 @import "./section-container.css";
 @import "./chunk.css";
@@ -20,13 +22,10 @@
 html {
   font-family: "Saira Condensed";
 }
-
-#bg {
+body {
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
