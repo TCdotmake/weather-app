@@ -1,3 +1,6 @@
+import mkRainIcon from "./icons/mkRainIcon";
+import mkSnowIcon from "./icons/mkSnowIcon";
+
 export default function initForecastContent() {
   const content = document.createElement("div");
   content.classList.add("content");
@@ -17,7 +20,22 @@ export default function initForecastContent() {
     const temp = document.createElement("h3");
     temp.classList.add("forecast-temp");
     temp.classList.add("value");
-    card.append(title, img, temp);
+
+    const raindiv = document.createElement("div");
+    raindiv.classList.add("chance-div");
+    const rainchance = document.createElement("span");
+    rainchance.classList.add("rain-chance");
+    rainchance.innerHTML = "0%";
+    raindiv.append(mkRainIcon(), rainchance);
+
+    const snowdiv = document.createElement("div");
+    snowdiv.classList.add("chance-div");
+    const snowchance = document.createElement("span");
+    snowchance.classList.add("snow-chance");
+    snowchance.innerHTML = "0%";
+    snowdiv.append(mkSnowIcon(), snowchance);
+
+    card.append(title, img, temp, raindiv, snowdiv);
     bg.appendChild(card);
   }
   content.append(bg);

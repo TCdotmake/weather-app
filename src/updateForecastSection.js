@@ -19,11 +19,13 @@ export default function updateForecastSection(data) {
 function updateCondition(data) {
   const forecastArr = data.forecast.forecastday;
   const iconArr = document.querySelectorAll(".forecast-icon");
-  // const descArr = document.querySelectorAll(".forecast-desc");
+  const rain = document.querySelectorAll(".rain-chance");
+  const snow = document.querySelectorAll(".snow-chance");
   for (let index in forecastArr) {
     const condition = forecastArr[index].day.condition;
     iconArr[index].src = condition.icon;
-    // descArr[index].innerHTML = condition.text;
+    rain[index].innerHTML = `${forecastArr[index].day.daily_chance_of_rain}%`;
+    snow[index].innerHTML = `${forecastArr[index].day.daily_chance_of_snow}%`;
   }
 }
 
