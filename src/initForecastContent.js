@@ -4,7 +4,8 @@ export default function initForecastContent() {
   content.id = "forecast";
 
   const arr = ["Today", "Tomorrow", "After"];
-
+  const bg = document.createElement("div");
+  bg.classList.add("forecast-bg");
   for (let item of arr) {
     const card = document.createElement("div");
     card.classList = "forecast-card";
@@ -13,17 +14,12 @@ export default function initForecastContent() {
     title.classList.add("forecast-day");
     const img = new Image();
     img.classList.add("forecast-icon");
-    const desc = document.createElement("p");
-    desc.classList.add("forecast-desc");
     const temp = document.createElement("h3");
     temp.classList.add("forecast-temp");
     temp.classList.add("value");
-    card.appendChild(title);
-    card.appendChild(img);
-    card.appendChild(desc);
-    card.appendChild(temp);
-    content.appendChild(card);
+    card.append(title, img, temp);
+    bg.appendChild(card);
   }
-
+  content.append(bg);
   return content;
 }

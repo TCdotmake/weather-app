@@ -3,22 +3,34 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
 
-  /*cards*/
-  > div {
-    text-align: center;
-    /* padding: 1rem; */
-    height: fit-content;
-    > h3 {
-      font-size: 1.3rem;
-      font-weight: 500;
-    }
-    > p {
-      font-weight: 200;
-      line-height: 120%;
-    }
-    > img {
-      margin: -0.5rem 0;
-    }
+.forecast-bg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 320px;
+  height: 220px;
+  background: var(--primary);
+  border-radius: 1rem;
+}
+
+.forecast-card {
+  text-align: center;
+
+  color: var(--white);
+  > h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  > p {
+    font-weight: 200;
+    line-height: 120%;
+  }
+  > img {
+    margin: -0.5rem 0;
   }
 }

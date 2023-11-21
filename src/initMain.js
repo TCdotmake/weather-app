@@ -1,9 +1,11 @@
 import directionIcon from "./icons/directionIcon";
+import flipIcon from "./icons/flipIcon";
 import humidityIcon from "./icons/humidityIcon";
 import uvIcon from "./icons/uvIcon";
 import visibilityIcon from "./icons/visibilityIcon";
 import windIcon from "./icons/windIcon";
 import searchIcon from "./searchIcon";
+import toggleUnit from "./toogleUnit";
 export default function initMain() {
   const main = document.createElement("section");
   main.classList.add("section-container");
@@ -82,6 +84,18 @@ function mkMisc() {
 
 function mkForecast() {
   const forecast = document.createElement("div");
+
+  const toggleBtn = document.createElement("button");
+  toggleBtn.id = "toggle-btn";
+  const f = document.createElement("span");
+  f.innerHTML = "ºF";
+  const c = document.createElement("span");
+  c.innerHTML = "ºC";
+  toggleBtn.append(f, flipIcon, c);
+  forecast.append(toggleBtn);
+  toggleBtn.addEventListener("click", () => {
+    toggleUnit();
+  });
 
   const icon = new Image();
   icon.id = "main-icon";

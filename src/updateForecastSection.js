@@ -19,11 +19,11 @@ export default function updateForecastSection(data) {
 function updateCondition(data) {
   const forecastArr = data.forecast.forecastday;
   const iconArr = document.querySelectorAll(".forecast-icon");
-  const descArr = document.querySelectorAll(".forecast-desc");
+  // const descArr = document.querySelectorAll(".forecast-desc");
   for (let index in forecastArr) {
     const condition = forecastArr[index].day.condition;
     iconArr[index].src = condition.icon;
-    descArr[index].innerHTML = condition.text;
+    // descArr[index].innerHTML = condition.text;
   }
 }
 
